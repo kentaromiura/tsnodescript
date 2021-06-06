@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+/*
+    This is an example of a transform that doesn't use ASTs
+    but raw process the text.
+*/
+const fs = require('fs');
+const babel = require('@babel/core'),
+    presetEnv = require('@babel/preset-env'),
+    typescript = require('@babel/plugin-transform-typescript');
+
+// The input filename is passed 
+// as first parameter to the command
+const file = process.argv[2];
+
+// This reads all the content from the original source file
+const content = fs.readFileSync(file, 'utf8');
+console.log(babel.transform(content, {
+    filename: 'lol',
+    presets: [presetEnv],
+    plugins: [typescript],
+    retainLines: true
+}).code);

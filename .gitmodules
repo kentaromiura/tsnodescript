@@ -1,0 +1,3 @@
+[submodule "transformallthethings"]
+	path = transformallthethings
+	url = https://github.com/kentaromiura/transformallthethings
